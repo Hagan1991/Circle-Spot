@@ -65,6 +65,16 @@ body, html {
   color: var(--purple); font-weight: 600;
 }
 
+/* AUTH FORM */
+#auth-section input {
+  width: 100%; padding: 12px; margin: 8px 0; border: 1px solid var(--border); border-radius: 10px; background: white;
+}
+#auth-section button {
+  background: var(--purple); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; margin: 5px;
+}
+#auth-section button:hover { background: var(--purple-dark); }
+#auth-status { color: var(--purple); font-weight: 600; }
+
 /* MODULES */
 .module {
   background: var(--box-bg);
