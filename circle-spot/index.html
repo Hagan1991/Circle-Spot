@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circle Spot – <%= username %></title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Circle Spot: Your personal hangout with anthems, friends, and custom vibes." />
+</head>
+<body>
+  <div id="container">
+
+    <!-- PROFILE BOX -->
+    <div id="profile-box">
+      <div id="profile-pic"><img src="https://i.imgur.com/8t7x9gP.jpg" alt="profile" /></div>
+      <div id="profile-info">
+        <h1 contenteditable="true" id="username">SceneKid2005</h1>
+        <p contenteditable="true" id="status">hanging at the spot tonight</p>
+        <div id="anthem-player">
+          <audio id="anthem-audio" src="assets/default-anthem.mp3" loop></audio>
+          <button id="toggle-anthem">Play Anthem</button>
+          <span id="anthem-title">Default Banger</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY CIRCLE (Top 7) -->
+    <div class="module">
+      <h2>My Circle</h2>
+      <div id="circle-list"></div>
+    </div>
+
+    <!-- ANNOUNCEMENTS -->
+    <div class="module">
+      <h2>Announcements</h2>
+      <div id="announcement-list"></div>
+      <textarea id="new-announcement" placeholder="Post an announcement..."></textarea>
+      <button id="post-announcement">Post</button>
+    </div>
+
+    <!-- CUSTOMIZER -->
+    <div class="module">
+      <h2>Style Your Spot</h2>
+      <textarea id="custom-css" placeholder="/* your CSS */"></textarea>
+      <textarea id="custom-html" placeholder="&lt;!-- your HTML -->"></textarea>
+      <button id="apply-custom">Apply</button>
+    </div>
+
+    <!-- SPARKLE TEXT -->
+    <div class="module">
+      <h2>Spot Sparkle</h2>
+      <input id="sparkle-input" placeholder="type here…" />
+      <button id="make-sparkle">Sparkle!</button>
+      <div id="sparkle-output"></div>
+    </div>
+
+    <!-- LETTERS -->
+    <div class="module">
+      <h2>Letters</h2>
+      <p><em>Coming soon: Send private letters to your circle.</em></p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        <strong>Circle Spot</strong> is an independent project inspired by early 2000s web culture.<br>
+        Not affiliated with MySpace™ or any other platform.
+      </p>
+      <p>© 2025 YourName – All code is original.</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
