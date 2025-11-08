@@ -1,5 +1,46 @@
 // ==== STATE ====
-const state = {
+const state = {// Firebase Auth (from window.auth)
+const auth = window.auth;
+let currentUser = null;
+
+// Listen for auth changes
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  const statusEl = $('#auth-status');
+  const logoutBtn = $('#logout-btn');
+  if (user) {
+    statusEl.textContent = `Welcome, ${user.email}!`;
+    logoutBtn.style.display = 'inline';
+  } else {
+    statusEl.textContent = 'Sign up to save your spot!';
+    logoutBtn.style.display = 'none';
+  }
+});
+
+// Signup
+$('#signup-btn').onclick = () => {
+  const email = $('#email').value;
+  const password = $('#password').value;
+  if (!email || !password) return alert('Fill in email & password!');
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => alert('Signed up! Welcome to Circle Spot!'))
+    .catch((error) => alert('Error: ' + error.message));
+};
+
+// Login
+$('#login-btn').onclick = () => {
+  const email = $('#email').value;
+  const password = $('#password').value;
+  if (!email || !password) return alert('Fill in email & password!');
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => alert('Logged in!'))
+    .catch((error) => alert('Error: ' + error.message));
+};
+
+// Logout
+$('#logout-btn').onclick = () => {
+  signOut(auth).then(() => alert('Logged out!'));
+};
   username: 'SceneKid2005',
   status: 'hanging at the spot tonight',
   anthem: { src: 'assets/default-anthem.mp3', title: 'Default Banger', playing: false },
