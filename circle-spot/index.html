@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+
+  // Your Firebase config from Step 1
+  const firebaseConfig = {
+    // PASTE YOUR CONFIG HERE
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.auth = getAuth(app);  // Make auth global for app.js
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,6 +21,18 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="description" content="Circle Spot: Your personal hangout with anthems, friends, and custom vibes." />
 </head>
+<!-- SIGNUP/LOGIN FORM -->
+<div id="auth-section" class="module">
+  <h2>Join the Spot</h2>
+  <div id="auth-form">
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="signup-btn">Sign Up</button>
+    <button id="login-btn">Log In</button>
+    <button id="logout-btn" style="display:none;">Log Out</button>
+    <p id="auth-status"></p>
+  </div>
+</div>
 <body>
   <div id="container">
 
